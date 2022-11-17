@@ -1,0 +1,51 @@
+:root{
+    --border-radius : 5px; 
+}
+
+main{
+    text-align: center;
+}
+
+button{
+    height: auto;
+    width: auto;
+}
+
+.buscador{
+    display: inline-block;
+    text-align: center;
+    padding: 1em;
+}
+
+div{
+    display: flex;
+    text-align: center;
+}
+th{
+    background-color: aqua;
+    color: black;
+    border-radius: var(--border-radius);
+}
+table{
+    border-radius: var(--border-radius);
+    margin: 0 auto;
+    background-color: blueviolet;
+    color: whitesmoke;
+    width: 500px;
+    overflow: visible;
+}
+
+img{
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius);
+}
+
+tbody tr:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    height: 75px;
+    transition: 0.3s ease-in-out;
+}
+
