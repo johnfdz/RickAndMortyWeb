@@ -14,30 +14,35 @@ btnBuscar.addEventListener('click', (e) => {
 getDatos();
 
 function getDatos() {
+    document.getElementById('bodyEvento').innerHTML = "";
     if (id.value != "") {
         fetch(`${urlRick}/${id.value}`)
             .then(res => res.json())
-            .then(datos => addColumns(datos));
+            .then(datos => {
+                addColumns(datos);
+                document.getElementById('bodyEvento').innerHTML = rows;
+            });
     } else {
         fetch(urlRick)
             .then(res => res.json())
             .then(data => {
-                buildData(data);
+                data.results.forEach(data => {
+                    addColumns(data);
+                    document.getElementById('bodyEvento').innerHTML += rows;
+                });
             });
     }
-
-
 };
 
-function addColumns(datos){
-    if(datos.error == "Character not found"){
+function addColumns(datos) {
+    if (datos.error == "Character not found") {
         rows =
-        `<tr>
+            `<tr>
         <td colspan = "4">${datos.error}</td>
         </tr>`
-    }else{
+    } else {
         rows =
-        `<tr>
+            `<tr>
         <td>${datos.id}</td>
         <td>
         <img src="${datos.image}" alt="Personaje">
@@ -46,25 +51,7 @@ function addColumns(datos){
         <td>${datos.status}</td>
         </tr>`
     }
-    document.getElementById('bodyEvento').innerHTML = rows;
+    return rows;
 }
 
-function buildData(data) {
-    document.getElementById('bodyEvento').innerHTML = ""
-    let rows = ''
-    console.log(data);
-    data.results.forEach(datos => {
-        rows =
-            `<tr>
-            <td>${datos.id}</td>
-            <td>
-            <img src="${datos.image}" alt="Personaje">
-            </td>
-            <td>${datos.name}</td>
-            <td>${datos.status}</td>
-            </tr>`
-        document.getElementById('bodyEvento').innerHTML += rows;
-        //body.append(rows);
-    });
 
-};
