@@ -1,12 +1,12 @@
-let url = 'https://jsonplaceholder.typicode.com/users/';
+
 const urlRick = 'https://rickandmortyapi.com/api/character';
-let id = document.getElementById('txtBuscar');
-let btnBuscar = document.getElementById('btnBuscar');
+const urlEpisodes = 'https://rickandmortyapi.com/api/episode';
+const id = document.getElementById('txtBuscar');
+const btnBuscar = document.getElementById('btnBuscar');
 
 
 btnBuscar.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(id.value);
     getDatos();
 });
 
@@ -45,7 +45,7 @@ function addColumns(datos) {
             `<tr>
         <td>${datos.id}</td>
         <td>
-        <img src="${datos.image}" alt="Personaje">
+        <img class= "img-container" src="${datos.image}" alt="Personaje">
         </td>
         <td>${datos.name}</td>
         <td>${datos.status}</td>

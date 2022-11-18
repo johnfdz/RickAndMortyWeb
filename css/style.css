@@ -2,9 +2,25 @@
 nav{
     text-align: center;
     background-color: aliceblue;
+
+}
+header{
+    background-color: black;
+    margin: 0;
 }
 
+body{
+    margin: 0;
+}
 
+main{
+    text-align: center;
+    background-image: url("https://i.pinimg.com/originals/70/cd/a4/70cda40d6679e21eb760dd3e35a26e7c.gif");
+    color: white;
+}
+.principal{
+    height: 800px;
+}
 
 li{
     display: inline;
@@ -30,5 +46,8 @@ li a:hover{
 }
 footer{
     text-align: center;
+    font-size: 25px;
+    background-color: rgb(160,64,0);
+    font-weight: bold;
 }
 
