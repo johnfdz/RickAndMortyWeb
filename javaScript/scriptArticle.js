@@ -11,16 +11,24 @@ getCharacters(1);
 
 siguiente.addEventListener('click', () => {
     document.getElementById('main-characters').innerHTML = '';
-    getCharacters(contador + 1)
-
-    console.log(url);
+    if(contador>=pagesCharacters){
+        siguiente.style.pointerEvents = 'none';
+        return false;
+    }else{
+        volver.style.pointerEvents = 'auto';
+        getCharacters(contador + 1);
+    }
 })
 
 volver.addEventListener('click', () => {
     document.getElementById('main-characters').innerHTML = '';
-    getCharacters(contador - 1)
-
-    console.log(url);
+    if(contador<2){
+        volver.style.pointerEvents = 'none';
+        return false;
+    }else{      
+        siguiente.style.pointerEvents = 'auto';
+        getCharacters(contador - 1);
+    }
 })
 
 window.addEventListener('scroll', () => {
