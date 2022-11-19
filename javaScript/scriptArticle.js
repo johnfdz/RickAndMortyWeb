@@ -1,34 +1,27 @@
-var urlRick = 'https://rickandmortyapi.com/api/character?page=';
+var urlRick = 'https://rickandmortyapi.com/api/character?page=1';
 var header = document.getElementById('Header');
 var volver = document.getElementById('volver');
 var siguiente = document.getElementById('siguiente');
-var newUrl;
-var pagesCharacters;
-var contador;
+var nextPage;
+var lastPage;
 
 
-getCharacters(1);
+getCharacters(urlRick);
 
-siguiente.addEventListener('click', () => {
-    document.getElementById('main-characters').innerHTML = '';
-    if(contador>=pagesCharacters){
-        siguiente.style.pointerEvents = 'none';
-        return false;
-    }else{
-        volver.style.pointerEvents = 'auto';
-        getCharacters(contador + 1);
+siguiente.addEventListener('click', (e) => {  
+    e.preventDefault();
+    if(nextPage != null){
+        document.getElementById('main-characters').innerHTML = '';
+        getCharacters(nextPage);
     }
 })
 
-volver.addEventListener('click', () => {
-    document.getElementById('main-characters').innerHTML = '';
-    if(contador<2){
-        volver.style.pointerEvents = 'none';
-        return false;
-    }else{      
-        siguiente.style.pointerEvents = 'auto';
-        getCharacters(contador - 1);
-    }
+volver.addEventListener('click', (e) => {
+    e.preventDefault();
+    if(lastPage != null){
+        document.getElementById('main-characters').innerHTML = '';
+        getCharacters(lastPage);
+    }        
 })
 
 window.addEventListener('scroll', () => {
@@ -42,14 +35,12 @@ window.addEventListener('scroll', () => {
     }
 })
 
-function getCharacters(num) {
-    contador = num;
-    newUrl = `${urlRick}${num}`;
-    console.log(newUrl);
-    fetch(newUrl)
+function getCharacters(url) {
+    fetch(url)
         .then(res => res.json())
         .then(data => {
-            pagesCharacters = data.info.pages;
+            nextPage = data.info.next;
+            lastPage = data.info.prev;
             data.results.forEach(data => {
                 const article = `
                 <article>
