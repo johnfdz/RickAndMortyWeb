@@ -26,6 +26,9 @@ main,header{
     cursor: pointer;
 }
 
+.div-characters{
+    min-height: 1000px;
+}
 header{
     position: fixed;
     height: 50px;
