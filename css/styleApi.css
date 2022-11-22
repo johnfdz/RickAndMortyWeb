@@ -2,13 +2,20 @@
     --border-radius : 5px; 
 }
 
+
 *{
     margin: 0;
 }
 
+
+
 main,header{
     text-align: center;
 
+}
+
+.datos-character{
+    padding: 10px;
 }
 
 .flechas{
@@ -29,8 +36,11 @@ main,header{
 .div-characters{
     min-height: 1000px;
 }
+
 header{
-    position: fixed;
+    position: sticky; /*Stiky top y left para posicionar en la cabecera estatica*/
+    top: 0;
+    left: 0;
     height: 50px;
     width: 100%;
     padding: 10px;
@@ -90,15 +100,17 @@ button:active{
 th{
     background-color: aqua;
     padding: 1em;
-    border-width: 5px;
-    border-color: black;
-    border-radius: var(--border-radius);
+    
+    
 }
-table{
-    border-radius: var(--border-radius);
+table, th{
+    border-collapse: inherit;
     margin: 0 auto;
     width: 500px;
+    border: 1px solid black;
+    border-radius: var(--border-radius);
 }
+
 
 .img-container{
     width: 50px;

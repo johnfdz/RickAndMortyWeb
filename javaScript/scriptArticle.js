@@ -35,8 +35,8 @@ window.addEventListener('scroll', () => {
     }
 })
 
-function getCharacters(url) {
-    fetch(url)
+async function getCharacters(url) {
+    await fetch(url)
         .then(res => res.json())
         .then(data => {
             nextPage = data.info.next;
@@ -47,9 +47,9 @@ function getCharacters(url) {
                     <div class= "container-img">
                     <img src="${data.image}" alt="Character">
                     </div>
-                    <h2>${data.name}</h2>
-                    <span>${data.status}</span>   
-                </article>`
+                    <h2 class= "datos-character">${data.name}</h2>
+                    <span class= "datos-character">${data.status}</span>   
+                </article>`;
                 document.getElementById('main-characters').innerHTML += article;
             });
         });

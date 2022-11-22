@@ -10,13 +10,14 @@
     <title>Rick and Morty Api</title>
 </head>
 <body>
+    <iframe src="../header.html" frameborder="0" style="height: 60px; width: 100%; "></iframe>
     <main>
         <h1>
             Rick and Morty
         </h1>
         <div class="buscador">
             <form>
-                <input id="txtBuscar" class="buscarId" type="text" placeholder="Character ID">
+                <input id="txtBuscar" class="buscarId" type="number"  placeholder="Character ID">
                 <button id="btnBuscar" class="btnBuscar">Buscar</button>
             </form>
         </div>
@@ -27,10 +28,10 @@
                         <th colspan="4">Characters</th>
                     </tr>
                     <tr>
-                        <th>ID</th>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Status</th>
+                        <th class = "tablath">ID</th>
+                        <th class = "tablath">Image</th>
+                        <th class = "tablath">Name</th>
+                        <th class = "tablath">Status</th>
                     </tr>
                 </thead>
                 <tbody id="bodyEvento">                    
